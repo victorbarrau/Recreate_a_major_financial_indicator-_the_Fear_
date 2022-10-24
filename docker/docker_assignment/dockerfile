@@ -1,0 +1,11 @@
+FROM python:3.9
+
+COPY google_trend1d.py ./
+
+RUN pip install requests pandas
+RUN pip install requests numpy 
+RUN pip install requests matplotlib
+RUN pip install requests seaborn  
+RUN pip install requests pytrends
+
+CMD [ "python3""./google_trend1d.py" ]
