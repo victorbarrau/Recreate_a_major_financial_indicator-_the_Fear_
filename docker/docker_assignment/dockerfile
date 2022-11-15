@@ -1,11 +1,9 @@
-FROM python:3.9
+FROM python:3.9-slim-buster
 
-COPY google_trend1d.py ./
+RUN mkdir /gg_trend
 
-RUN pip install requests pandas
-RUN pip install requests numpy 
-RUN pip install requests matplotlib
-RUN pip install requests seaborn  
-RUN pip install requests pytrends
+COPY . /gg_trend/.
 
-CMD [ "python3""./google_trend1d.py" ]
+RUN pip install -r /gg_trend/requirements.txt
+
+CMD [ "python","/gg_trend/ggtrend.py" ]
