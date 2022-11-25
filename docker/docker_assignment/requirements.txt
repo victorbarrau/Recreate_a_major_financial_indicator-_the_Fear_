@@ -1,4 +1,0 @@
-pandas
-pytrends
-numpy
-requests
