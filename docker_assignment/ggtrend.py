@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 from pytrends.request import TrendReq
 
-
+app.run(port=int(os.environ.get("PORT", 8080)),host='0.0.0.0',debug=True)
 
 
 last_value_dict={}
