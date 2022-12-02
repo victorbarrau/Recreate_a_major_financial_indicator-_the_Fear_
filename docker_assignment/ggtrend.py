@@ -5,7 +5,7 @@ from pytrends.request import TrendReq
 
 
 
-
+sleep(1)
 last_value_dict={}
 def get_last_24h_trend(keyword_list):
     for keyword in keyword_list :
