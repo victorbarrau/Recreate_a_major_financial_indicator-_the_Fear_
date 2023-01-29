@@ -1,0 +1,38 @@
+import tweepy as tw
+import pandas as pd
+from datetime import date
+from datetime import datetime, timedelta
+import numpy as np
+#Put your Bearer Token in the parenthesis below
+client = tw.Client(bearer_token='')
+#4 others token from api
+auth = tw.OAuthHandler("#################", "#######################"")
+auth.set_access_token("#################", "#######################")
+api = tw.API(auth)
+# ne fonctionne plus avec les dates : query = 'BTC -is:retweet lang:en since:{} until:{}'.format(date_since,date_now)
+#-is:retweet = ne pas prendre les retweet, -(RT) = ne pas prendre les tweets de concours
+query = '-(RT)  ETH OR etherium -is:retweet lang:en'
+tweets = tw.Paginator(client.search_recent_tweets, query=query,
+                              tweet_fields=['context_annotations', 'created_at'], max_results=100).flatten(limit=100)
+tweets_copy=tweets
+X=[]
+publication_time=[] 
+likes=[]
+rt=[]
+for tweet in tweets:
+    shifted = tweet.id >> 22 
+    timestamp = shifted + 1288834974657
+    time_created = datetime.fromtimestamp(timestamp/1000).strftime('%Y-%m-%d')
+    publication_time.append(time_created)
+    X.append(tweet.text)
+    temp=api.get_status(tweet.id)
+    rt.append(temp.retweet_count)
+    likes.append(temp.favorite_count)
+    
+    
+
+df=pd.DataFrame()
+df['text']=X
+df['date']=publication_time
+df['likes']=likes
+df["rt"]=rt
