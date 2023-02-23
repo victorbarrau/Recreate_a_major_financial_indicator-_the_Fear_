@@ -9,7 +9,7 @@ import pandas_gbq
 
 client = storage.Client()
 bucket = client.get_bucket('data-coin-market-cap')
-crypto_list = ["bnb","eth","bnb","doge"]
+crypto_list = ["bnb","eth","btc","doge"]
 for crypto in crypto_list :
     now = datetime.datetime.now()
     
