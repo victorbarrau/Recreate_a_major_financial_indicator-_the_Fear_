@@ -1,0 +1,6 @@
+google-cloud-storage
+pandas
+robotframework-csvlibrary
+regex
+robotframework-jsonlibrary
+numpy

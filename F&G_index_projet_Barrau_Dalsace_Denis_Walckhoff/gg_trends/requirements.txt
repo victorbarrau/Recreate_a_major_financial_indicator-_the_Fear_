@@ -1,0 +1,7 @@
+google-cloud-storage
+pandas
+pytrends
+numpy
+requests
+datetime
+robotframework-jsonlibrary

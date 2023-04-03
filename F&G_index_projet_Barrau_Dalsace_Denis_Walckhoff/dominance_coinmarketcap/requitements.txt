@@ -1,0 +1,6 @@
+requests
+pandas
+robotframework-jsonlibrary
+google-cloud-storage
+robotframework-csvlibrary
+numpy
